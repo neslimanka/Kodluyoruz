@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  
+  header {
+    background-color: #232323;
+    position: absolute;
+    width: 100%;
+    height: 16.8vw;
+    left: 0;
+    top: 0;
+  }
+  
+  header input {
+    position: relative;
+    width: 20vw;
+    height: 2.5rem;
+    left: 33vw;
+    top: 10vw;
+    background: #f0f0f0;
+    margin-right: 10px;
+  }
+  
+  header button {
+    position: relative;
+    width: 5rem;
+    height: 2.5rem;
+    left: 34vw;
+    top: 10vw;
+    background: #f0f0f0;
+    border-radius: 11px;
+  }
+  main {
+    position: absolute;
+    width: 50vw;
+    height: 22vw;
+    left: 20vw;
+    top: 20vw;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 10;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+  }
+  #result {
+    position: absolute;
+    width: 45px;
+    height: 19px;
+    left: 1%;
+    top: -20px;
+    background-color: #fff;
+  }
+  #user-info {
+    margin-bottom: 30px;
+  }
+  
+  #profile-photo {
+    margin-left: 26px;
+    margin-right: 10px;
+    width: 63px;
+  }
+  
+  .names {
+    display: inline-block;
+    position: absolute;
+    margin-left: 10px;
+  }
+  
+  #username {
+    color: gray;
+    margin-top: 10px;
+  }
+  
+  #repo-info {
+    margin-right: 26px;
+    float: right;
+    text-align: right;
+  }
+  
+  #repo-info p {
+    margin-bottom: 10px;
+  }
+  
+  #languages {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
