@@ -42,7 +42,8 @@ function requestUserRepos(username,reponame){
        
         const data = JSON.parse(this.response);
         console.log(data);
-        
+ 
+            
         
        
         for (let i in data) {
@@ -74,3 +75,4 @@ function requestUserRepos(username,reponame){
     xhr.send();
     
 }
+
