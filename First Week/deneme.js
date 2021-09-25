@@ -7,9 +7,13 @@ gitHubForm.addEventListener('submit', (e) => {
     
     e.preventDefault();
     let usernameInput = document.getElementById('usernameInput');
-    let gitHubUsername = usernameInput.value;  
+   // let repoInput = document.getElementById('repos');
+    let gitHubUsername = usernameInput.value;
+    //let gitHubRepo = repoInput.value;
+      
     requestUserRepos(gitHubUsername);
     requestUserRepos1(gitHubUsername);
+   // requestUserRepos2(gitHubUsername,gitHubRepo);
 
 })
 
@@ -26,12 +30,20 @@ function requestUserRepos(username){
     xhr.onload = function () {
     
         const data = JSON.parse(this.response);
-    
-        profilePhoto.src=data.avatar_url;
-        userName.innerHTML = "@" + data.login;
-        name.innerHTML = data.name;
-        repoInfo[0].innerHTML=data.public_repos;
+ 
+        if(data.name===undefined){
+            userName.innerHTML="Kullanıcı Bulunamadı";
 
+        }
+        else {
+
+            profilePhoto.src=data.avatar_url;
+            userName.innerHTML = "@" + data.login;
+            name.innerHTML = data.name;
+            repoInfo[0].innerHTML=data.public_repos;
+        }
+        
+      
     }
 
     xhr.send();
@@ -39,22 +51,38 @@ function requestUserRepos(username){
 }
 function requestUserRepos1(username){
     const xhr1 = new XMLHttpRequest();
-    const url1 = `https://api.github.com/users/${username}/repos?per_page=100`;
+    const url1 = `https://api.github.com/users/${username}/repos`;
   
     
     xhr1.open('GET', url1, true);
  
     xhr1.onload = function () {
     
-        const data = JSON.parse(this.response);
-        var language=new Array();
-        language=data.values;
+        var lang=new Array();
         
+        
+        const data = JSON.parse(this.response);
+       
+     
+        data.forEach(element => {
+            lang.push(element.language)
+            
+            console.log(lang);
+        });
+  
+
+    
+     
+        
+        
+     
+        
+     
     
         for (let i in data) {
         
             let ul1 = document.getElementById('userRepos');
- 
+      
           
             let li1 = document.createElement('li');
 
@@ -81,3 +109,29 @@ function requestUserRepos1(username){
    
     
 }
+// function requestUserRepos2(username,repos){
+ 
+//     const xhr2 = new XMLHttpRequest();
+//     const url2 = `https://api.github.com/repos/${username}/${repos}/languages`;
+    
+//     xhr2.open('GET', url2, true);
+ 
+//     xhr2.onload = function () {
+    
+//         const data = JSON.parse(this.response);
+//         console.log(data);
+//         let arr=new Array();
+//         let lang=new Map();
+//         const sayac=0;
+//         var top=0;
+
+      
+      
+
+//     }
+
+//     xhr2.send();
+
+// }
+
+
