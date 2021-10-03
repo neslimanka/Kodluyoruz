@@ -23,14 +23,14 @@ export default class CartSummary extends Component {
                     {this.props.cart.map(cartItem => (
                         <DropdownItem key={cartItem.product.id}>
                             <Badge color="danger" onClick={() => this.props.removeFromCart(cartItem.product)}>X</Badge>
-                            {cartItem.product.productName}
+                            {cartItem.product.title}
                             <Badge color="success">{cartItem.quantity}</Badge>
                         </DropdownItem>
                     ))}
 
                     <DropdownItem divider />
                     <DropdownItem>
-                        <Link to="cart">Go to cart</Link>
+                        <Link to="cartList">Go to cart</Link>
                     </DropdownItem>
                 </DropdownMenu>
             </UncontrolledDropdown>

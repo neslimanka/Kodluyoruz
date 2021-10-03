@@ -2,30 +2,32 @@ import React, { Component } from 'react'
 import { Button, Table } from 'reactstrap'
 
 export default class CartList extends Component {
+    
     renderCart() {
         return (
 
             <Table striped>
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>Product Id</th>
                         <th>Category Id</th>
                         <th>Product Name</th>
                         <th>Unit Price</th>
                         <th>Units In Stock</th>
-                        <th>Quantity</th>
+                        
                         <th />
                     </tr>
                 </thead>
                 <tbody>
                     {this.props.cart.map(cartItem => (
+                        
                         <tr key={cartItem.product.id}>
                             <td>{cartItem.product.id}</td>
                             <td>{cartItem.product.categoryId}</td>
-                            <td>{cartItem.product.productName}</td>
-                            <td>{cartItem.product.unitPrice}</td>
-                            <td>{cartItem.product.unitsInStock}</td>
-                            <td>{cartItem.quantity}</td>
+                            <td>{cartItem.product.title}</td>
+                            <td>{cartItem.product.price}</td>
+                            <td>{cartItem.product.description}</td>
+                            
                             <td>
                                 <Button
                                     color="danger"
@@ -40,12 +42,18 @@ export default class CartList extends Component {
             </Table>
 
 
-        );
+        )
     }
 
     render() {
         
-            return <div>{this.renderCart()}</div>;
+            return ( 
+
+             <div>
+             {this.renderCart()}
+            </div>
+                
+                )
     }
 }
 

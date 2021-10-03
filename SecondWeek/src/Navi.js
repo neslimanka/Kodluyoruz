@@ -33,6 +33,12 @@ export default class Navi extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+              
+            <NavItem>
+                <NavLink>
+                  <Link to="shop">Shop</Link>
+                </NavLink>
+              </NavItem>
 
               <NavItem>
                 <NavLink>
