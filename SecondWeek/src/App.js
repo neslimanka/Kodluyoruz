@@ -38,8 +38,11 @@ export default class App extends Component {
     var addedItem = newCart.find((c) => c.product.id === product.id);
     if (addedItem) {
       addedItem.quantity += 1;
+      addedItem.price=addedItem.price+addedItem.price;
+      
+      
     } else {
-      newCart.push({ product: product, quantity: 1 });
+      newCart.push({ product: product, quantity: 1,price:product.price });
     }
 
     this.setState({ cart: newCart });
@@ -60,14 +63,16 @@ export default class App extends Component {
         <Container>
           <Navi removeFromCart={this.removeFromCart} cart={this.state.cart} />
           <Row>
-            <Col xs="3">
+            <Col xs="2">
               <CategoryList
                 currentCategory={this.state.currentCategory}
                 changeCategory={this.changeCategory}
                 info={categoryInfo}
               />
+           
             </Col>
-            <Col xs="9">
+            <Col xs="5">
+                
               <Switch>
                 <Route
                   
@@ -90,6 +95,7 @@ export default class App extends Component {
                       {...props}
                       cart={this.state.cart}
                       removeFromCart={this.removeFromCart}
+                      addToCart={this.addToCart}
                     />
                   )}
                 />
@@ -97,6 +103,12 @@ export default class App extends Component {
                 <Route exact path="/form2" component={FormDemo2} />
                 <Route exact path="/" component={Home} />
               </Switch>
+            </Col>
+            <Col xs="4">
+            <CartList 
+                cart={this.state.cart}
+                removeFromCart={this.removeFromCart}
+              />
             </Col>
           </Row>
         </Container>

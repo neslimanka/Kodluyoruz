@@ -20,7 +20,7 @@ export default class ProductList extends Component {
           <Row>
             {this.props.products.map((product) => {
               return (
-                <Col key={product.id} md="3">
+                <Col key={product.id} md="6">
                   <Card
                     top
                     style={{
