@@ -1,39 +1,56 @@
-import React, { Component } from 'react'
-import { Table, Button } from "reactstrap";
+import React, { Component } from "react";
+import {
+  CardBody,
+  CardTitle,
+  CardImg,
+  Col,
+  Container,
+  Row,
+  Card,
+  Button,
+} from "reactstrap";
+import { Link } from "react-router-dom";
 
 export default class ProductList extends Component {
-
-
-    render() {
-        return (
-            <div>
-                <h3>{this.props.currentCategory}
-                </h3>
-                <Table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Product Name</th>
-                            <th>Unit Price</th>
-                            <th>Quantity Per Unit</th>
-                            <th>Units In Stock</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.props.products.map(product => (
-                            <tr key={product.id}>
-                                <th scope="row">{product.id}</th>
-                                <td>{product.title}</td>
-                                <td>{product.unitPrice}</td>
-                                <td>{product.quantityPerUnit}</td>
-                                <td>{product.unitsInStock}</td>
-                                <td><Button onClick={() => this.props.addToCart(product)} color="success">add</Button></td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </Table>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <br />
+        <Container>
+          <Row>
+            {this.props.products.map((product) => {
+              return (
+                <Col key={product.id} md="3">
+                  <Card
+                    top
+                    style={{
+                      width: "15rem",
+                      height: "34rem",
+                      borderColor: "#7494fb",
+                    }}
+                  >
+                    <CardBody>
+                      <CardImg
+                        width="50%"
+                        height="35%"
+                        src={product.image}
+                        alt="Card image cap"
+                      />
+                      <CardTitle tag="h5">{product.title}</CardTitle>
+                    </CardBody>
+                    <Button onClick={() => this.props.addToCart(product)}>
+                      Add to Cart
+                    </Button>
+                    <Button color="warning">
+                      <Link to="Stories">Details</Link>
+                    </Button>
+                  </Card>
+                </Col>
+              );
+            })}
+          </Row>
+        </Container>
+      </div>
+    );
+  }
 }

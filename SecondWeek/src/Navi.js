@@ -11,7 +11,10 @@ import {
 import CartSummary from "./CartSummary";
 import { Link } from "react-router-dom";
 
+
 export default class Navi extends React.Component {
+
+
   constructor(props) {
     super(props);
 
@@ -28,13 +31,16 @@ export default class Navi extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar color="dark" dark expand="md">
           <NavbarBrand href="/">Ecommerce</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
+
+          
             <Nav className="ml-auto" navbar>
               
             <NavItem>
+
                 <NavLink>
                   <Link to="shop">Shop</Link>
                 </NavLink>
@@ -42,19 +48,20 @@ export default class Navi extends React.Component {
 
               <NavItem>
                 <NavLink>
-                  <Link to="form1">Form Demo 1</Link>
+                  <Link to="stories">Stories</Link>
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink>
-                  <Link to="form2">Form Demo 2</Link>
+                  <Link to="about">About</Link>
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
-                  GitHub
+                <NavLink>
+                  <Link to="form2">Login</Link>
                 </NavLink>
               </NavItem>
+         
               <NavItem>
                 <CartSummary
                   removeFromCart={this.props.removeFromCart}

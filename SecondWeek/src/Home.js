@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import { Switch } from "react-router-dom";
-import { Container, Row} from "reactstrap";
 
-import Header from "./Header";
+import { Container } from "reactstrap";
 import Navi from "./Navi";
-import Slider from "./Slider";
 import alertify from "alertifyjs";
+import { Jumbotron, Button } from "reactstrap";
+import { Link } from "react-router-dom";
+import Slider from "./Slider";
+
 export default class Home extends Component {
   state = { currentCategory: "", products: [], cart: [] };
-  
+
   componentDidMount() {
     this.getProducts();
   }
@@ -41,6 +42,7 @@ export default class Home extends Component {
     alertify.success(product.title + " added to cart!");
   };
 
+
   removeFromCart = (product) => {
     let newCart = this.state.cart.filter((c) => c.product.id !== product.id);
     this.setState({ cart: newCart });
@@ -51,13 +53,30 @@ export default class Home extends Component {
       <div>
         <Container>
           <Navi removeFromCart={this.removeFromCart} cart={this.state.cart} />
-          <Row>
-            <Header />
-            <Slider />
-            <Switch>
-      
-            </Switch>
-          </Row>
+
+          <br />
+
+          <div class="container-fluid">
+            <Jumbotron>
+              <h1 className="display-3">Better clothing for the planet</h1>
+              <p className="lead">
+                Create screens directly in Method or add your images from Sketch
+                or{" "}
+              </p>
+
+              <p>Figma.You can even sync designs from your cloud storage!</p>
+              <p className="lead">
+                <Button color="warning">
+                  <Link to="/shop"> Shop All</Link>
+                </Button>
+              </p>
+            </Jumbotron>
+          </div>
+          <div>
+            <Slider></Slider>
+          </div>
+       
+
         </Container>
       </div>
     );
