@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Container } from 'reactstrap';
-import Navi from "./Navi";
 import alertify from "alertifyjs";
 
 export default class About extends Component {
@@ -17,8 +16,7 @@ export default class About extends Component {
         return (
             <div>
                 <Container>
-                <Navi removeFromCart={this.removeFromCart} cart={this.state.cart} />
-                <br/>
+               
                 <h1>This is About Component</h1>
                 </Container>
             </div>

@@ -1,9 +1,8 @@
 import React from 'react';
 import { UncontrolledCarousel } from 'reactstrap';
+import alisveris2 from "./img/alisveris2.png";
+import alisveris3 from "./img/alisveris3.png";
 
-import alisveris2 from "./alisveris2.png";
-import alisveris3 from "./alisveris3.png";
-import './style.css';
 
 
 const items = [

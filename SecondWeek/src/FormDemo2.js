@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Container } from "reactstrap";
 import alertify from "alertifyjs";
-import Navi from "./Navi";
+
 
 export default class FormDemo2 extends Component {
   state = { cart: [], email: "", password: "" };
@@ -21,8 +21,7 @@ export default class FormDemo2 extends Component {
   render() {
     return (
       <div>
-        <Navi removeFromCart={this.removeFromCart} cart={this.state.cart} />
-        <br />
+       
         <Container fluid>
           <Form onSubmit={this.handleSubmit}>
             <FormGroup>

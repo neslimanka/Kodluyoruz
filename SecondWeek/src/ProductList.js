@@ -1,23 +1,24 @@
 import React, { Component } from "react";
-import {
-  CardBody,
-  CardTitle,
+import {CardBody,
   CardImg,
+  CardTitle,
   Col,
-  Container,
   Row,
-  Card,
-  Button,
+  Container
+  ,Card,
+  Button
 } from "reactstrap";
 import { Link } from "react-router-dom";
+
 
 export default class ProductList extends Component {
   render() {
     return (
       <div>
-        <br />
+        
         <Container>
           <Row>
+          
             {this.props.products.map((product) => {
               return (
                 <Col key={product.id} md="6">
@@ -48,6 +49,7 @@ export default class ProductList extends Component {
                 </Col>
               );
             })}
+            
           </Row>
         </Container>
       </div>

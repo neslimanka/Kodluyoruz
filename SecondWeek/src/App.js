@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import CategoryList from "./CategoryList";
-import Navi from "./Navi";
 import ProductList from "./ProductList";
 import { Container, Row, Col } from "reactstrap";
 import alertify from "alertifyjs";
@@ -61,7 +60,7 @@ export default class App extends Component {
     return (
       <div>
         <Container>
-          <Navi removeFromCart={this.removeFromCart} cart={this.state.cart} />
+         
           <Row>
             <Col xs="2">
               <CategoryList

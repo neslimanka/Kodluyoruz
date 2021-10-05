@@ -1,39 +1,64 @@
 import React, { Component } from "react";
-
-import { Route, Switch } from "react-router";
-import { Container } from "reactstrap";
-
-import FormDemo2 from "./FormDemo2";
-import App from "./App";
-import Home from "./Home";
-import CategoryList from "./CategoryList";
-import Stories from "./Stories";
-import About from "./About";
-
+import { BrowserRouter as Router } from "react-router-dom";
+import Navi from "./Navi";
+import Footer from "./Footer";
+import Section from "./Section";
+import alertify from "alertifyjs";
+import Navi1 from "./Navi1";
 export default class HomePage extends Component {
+  state = { currentCategory: "", products: [], cart: [] };
+
+  componentDidMount() {
+    this.getProducts();
+  }
+
+  changeCategory = (category) => {
+    this.setState({ currentCategory: category.categoryName });
+    this.getProducts(category.id);
+  };
+
+  getProducts = (categoryId) => {
+    let url = "http://localhost:3000/products";
+    if (categoryId) {
+      url += "?categoryId=" + categoryId;
+    }
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => this.setState({ products: data }));
+  };
+
+  addToCart = (product) => {
+    let newCart = this.state.cart;
+    var addedItem = newCart.find((c) => c.product.id === product.id);
+    if (addedItem) {
+      addedItem.quantity += 1;
+      addedItem.price=addedItem.price+addedItem.price;
+      
+      
+    } else {
+      newCart.push({ product: product, quantity: 1,price:product.price });
+    }
+
+    this.setState({ cart: newCart });
+    alertify.success(product.title + " added to cart!");
+  };
+
+  removeFromCart = (product) => {
+    let newCart = this.state.cart.filter((c) => c.product.id !== product.id);
+    this.setState({ cart: newCart });
+    alertify.error(product.title + " removed from cart!");
+  };
   render() {
     return (
       <div>
-        <Container>
-          <Switch>
-            <Route exact path="/" component={Home}></Route>
-            <Route exact path="/ecommerce" component={Home}></Route>
-            <Route exact path="/form2" component={FormDemo2} />
-            <Route exact path="/shop" component={App} />
-           
-           
-            <Route exact path="/category" component={CategoryList} />
-            <Route exact path="/stories" component={Stories} />
-            <Route exact path="/about" component={About} />
-          </Switch>
-        </Container>
-</div>
 
-
-    ) 
+        <Router>
+         <Navi1/>
+         <Navi removeFromCart={this.removeFromCart} cart={this.state.cart} />
+          <Section />
+          <Footer />
+        </Router>
+      </div>
+    );
   }
 }
-
-
-
-

@@ -18,7 +18,7 @@ export default class CategoryList extends Component {
   render() {
     return (
       <div>
-        <br />
+        
 
         <ListGroup>
           {this.state.categories.map((category) => (
