@@ -70,7 +70,7 @@ export default class App extends Component {
               />
            
             </Col>
-            <Col xs="5">
+            <Col xs="8">
                 
               <Switch>
                 <Route
@@ -88,7 +88,7 @@ export default class App extends Component {
                 />
                  <Route
                   exact
-                  path="/cartList"
+                  path="/cart"
                   render={props => (
                     <CartList
                       {...props}
@@ -103,7 +103,7 @@ export default class App extends Component {
                 <Route exact path="/" component={Home} />
               </Switch>
             </Col>
-            <Col xs="4">
+            <Col xs="2">
             <CartList 
                 cart={this.state.cart}
                 removeFromCart={this.removeFromCart}

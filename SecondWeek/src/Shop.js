@@ -4,8 +4,8 @@ import alertify from "alertifyjs";
 import Container from "@material-ui/core/Container";
 import { Row, Col } from "react-bootstrap";
 import './css/Products.css';
-
-import { CardBody, CardTitle, CardImg, Card, Button } from "reactstrap";
+import {  Card, Button } from "reactstrap";
+import Grid from "@material-ui/core/Grid";
 
 export class Products extends Component {
   state = { currentCategory: "", products: [], cart: [] };
@@ -14,10 +14,7 @@ export class Products extends Component {
     this.getProducts();
   }
 
-  changeCategory = (category) => {
-    this.setState({ currentCategory: category.categoryName });
-    this.getProducts(category.id);
-  };
+ 
 
   getProducts = (categoryId) => {
     let url = "http://localhost:3000/products";
@@ -43,11 +40,7 @@ export class Products extends Component {
     alertify.success(product.title + " added to cart!");
   };
 
-  removeFromCart = (product) => {
-    let newCart = this.state.cart.filter((c) => c.product.id !== product.id);
-    this.setState({ cart: newCart });
-    alertify.error(product.title + " removed from cart!");
-  };
+
   render() {
     return (
       <div>
@@ -61,26 +54,26 @@ export class Products extends Component {
                   <Card
                     top
                     style={{
-                      width: "15rem",
-                      height: "34rem",
+                      width: "20rem",
+                      height: "25rem",
                       borderColor: "#7494fb",
                     }}
                   >
-                    <CardBody>
-                      <CardImg
-                        width="50%"
-                        height="35%"
-                        src={product.image}
-                        alt="Card image cap"
-                      />
-                      <CardTitle tag="h5">{product.title}</CardTitle>
-                    </CardBody>
+                    
+                    <Grid item xs={12} sm={3}>
+                          <div className="card" key={product.id}>
+                          <Link to={`/product/${product.id}`}>
+                              <img src={product.image} alt="" />
+                            </Link>
+                            
+                          </div>
+                        </Grid>
+                       
+                    
                     <Button onClick={() => this.addToCart(product)}>
                       Add to Cart
                     </Button>
-                    <Button color="warning">
-                      <Link to="Stories">Details</Link>
-                    </Button>
+                  
                   </Card>
                 </Col>
               );

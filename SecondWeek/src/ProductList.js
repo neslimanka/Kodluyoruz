@@ -1,55 +1,46 @@
 import React, { Component } from "react";
-import {CardBody,
-  CardImg,
-  CardTitle,
-  Col,
-  Row,
-  Container
-  ,Card,
-  Button
-} from "reactstrap";
+import { Col, Row, Container, Card, Button } from "reactstrap";
 import { Link } from "react-router-dom";
-
+import Grid from "@material-ui/core/Grid";
 
 export default class ProductList extends Component {
   render() {
     return (
       <div>
-        
-        <Container>
+        <Container maxWidth="lg" style={{ marginTop: "8px" }}>
           <Row>
-          
             {this.props.products.map((product) => {
               return (
-                <Col key={product.id} md="6">
+                <Col key={product.id} md="4">
                   <Card
                     top
                     style={{
-                      width: "15rem",
-                      height: "34rem",
+                      width: "20rem",
+                      height: "25rem",
                       borderColor: "#7494fb",
                     }}
                   >
-                    <CardBody>
-                      <CardImg
-                        width="50%"
-                        height="35%"
-                        src={product.image}
-                        alt="Card image cap"
-                      />
-                      <CardTitle tag="h5">{product.title}</CardTitle>
-                    </CardBody>
-                    <Button onClick={() => this.props.addToCart(product)}>
-                      Add to Cart
-                    </Button>
-                    <Button color="warning">
-                      <Link to="Stories">Details</Link>
+                    <Grid item xs={12} sm={3}>
+                      <div className="card" key={product.id}>
+                        <Link to={`/product/${product.id}`}>
+                          <img src={product.image} alt="" />
+                        </Link>
+                      </div>
+                    </Grid>
+
+                    <Button>
+                      <Link
+                        to="/cart"
+                        className="cart"
+                        onClick={() => this.props.addToCart(product)}
+                      >
+                        Add to cart
+                      </Link>
                     </Button>
                   </Card>
                 </Col>
               );
             })}
-            
           </Row>
         </Container>
       </div>

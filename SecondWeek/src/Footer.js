@@ -216,7 +216,7 @@ export default function Footer() {
             </Grid>
           </Grid>
           <Box
-            color="gray"
+            color="black"
             textAlign="center"
             pt={{ xs: 5, sm: 10 }}
             pb={{ xs: 5, sm: 0 }}

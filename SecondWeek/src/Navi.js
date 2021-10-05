@@ -41,11 +41,7 @@ export default class Navi extends React.Component {
                   <Link to="shop">Shop</Link>
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink>
-                  <Link to="deneme">Deneme</Link>
-                </NavLink>
-              </NavItem>
+           
               <NavItem>
                 <NavLink>
                   <Link to="stories">Stories</Link>
@@ -61,7 +57,11 @@ export default class Navi extends React.Component {
                   <Link to="form2">Login</Link>
                 </NavLink>
               </NavItem>
-
+              <NavItem>
+                <NavLink>
+                  <Link to="check">Check</Link>
+                </NavLink>
+              </NavItem>
               <NavItem>
               
                 <CartSummary
