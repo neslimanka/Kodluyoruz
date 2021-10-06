@@ -18,8 +18,8 @@ export default class About extends Component {
         
           
           <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <Box>
+            <Grid item xs={12}>
+              <Box sx={{ textAlign: "center", m: 3 }}>
                 <h2 style={{ color: "#f0d722" }}>ABOUT US</h2>
               </Box>
               <Box>
@@ -73,15 +73,7 @@ export default class About extends Component {
                 non malesuada. Phasellus in vehicula ipsum. Nam congue velit ut
                 nunc vulputate fringilla. In id ex in dolor efficitur lacinia
                 laoreet nec massa. Class aptent taciti sociosqu ad litora
-                torquent per conubia nostra, per inceptos himenaeos.
-              </Box>
-            </Grid>
-            <Grid item xs={6}>
-              <Box>
-                <h3 style={{ color: "#f0d722" }}>OUR MISSION</h3>
-              </Box>
-              <Box>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Pellentesque maximus orci quis justo commodo, sed faucibus lorem
                 posuere. Mauris dictum pharetra purus quis sollicitudin.
                 Curabitur tincidunt dolor vitae quam ullamcorper faucibus.
@@ -120,20 +112,10 @@ export default class About extends Component {
                 justo finibus eget. Phasellus felis odio, consequat eget elit
                 et, hendrerit vestibulum neque. Mauris lobortis porta sapien,
                 non fermentum libero porta a. Proin in libero sem. Vestibulum
-                vehicula porta dolor, at malesuada est consequat sit amet. In ac
-                massa placerat orci auctor finibus eget vel augue. Morbi
-                sollicitudin augue feugiat justo ornare placerat. Praesent
-                vulputate risus non turpis lacinia rutrum. Integer nisi metus,
-                gravida eu purus vitae, feugiat pretium eros. Curabitur nec
-                lectus risus. Class aptent taciti sociosqu ad litora torquent
-                per conubia nostra, per inceptos himenaeos. Donec nec congue
-                magna. Integer mollis varius luctus. Curabitur cursus sed lorem
-                non malesuada. Phasellus in vehicula ipsum. Nam congue velit ut
-                nunc vulputate fringilla. In id ex in dolor efficitur lacinia
-                laoreet nec massa. Class aptent taciti sociosqu ad litora
-                torquent per conubia nostra, per inceptos himenaeos.
+                vehicula porta dolor, at malesuada est consequat sit amet. 
               </Box>
             </Grid>
+            
           </Grid>
         </Container>
       </div>

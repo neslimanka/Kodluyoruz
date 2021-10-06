@@ -7,6 +7,7 @@ import './css/Products.css';
 import {  Card, Button } from "reactstrap";
 import Grid from "@material-ui/core/Grid";
 
+
 export class Products extends Component {
   state = { currentCategory: "", products: [], cart: [] };
 
@@ -56,7 +57,7 @@ export class Products extends Component {
                     style={{
                       width: "20rem",
                       height: "25rem",
-                      borderColor: "#7494fb",
+                      
                     }}
                   >
                     

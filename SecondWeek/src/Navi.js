@@ -8,10 +8,10 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
-import CartSummary from "./CartSummary";
 import { Link } from "react-router-dom";
 import "./css/navi.css";
 import CartIcon from "./img/shopping-cart-solid.svg";
+
 
 export default class Navi extends React.Component {
   constructor(props) {
@@ -63,19 +63,13 @@ export default class Navi extends React.Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-              
-                <CartSummary
-                  removeFromCart={this.props.removeFromCart}
-                  cart={this.props.cart}
-                  
-                />
+              <span>{this.props.cart.length}</span>
+            <Link to="/cart">
+              <img src={CartIcon} alt="" width="20" />
+            </Link>
                 
               </NavItem>
-              <NavItem>
-              <NavLink>
-              <img src={CartIcon} alt="" width="20" height="15"/>
-              </NavLink>
-              </NavItem>
+           
             </Nav>
           </Collapse>
         </Navbar>

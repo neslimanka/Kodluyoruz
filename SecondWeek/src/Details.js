@@ -12,15 +12,31 @@ export class Details extends Component {
     this.getProducts();
   }
 
-  getProducts = () => {
-    let url = "http://localhost:3000/products";
+  // getProducts = () => {
+  //   if (this.props.match.params.id) {
+  //   let url = "http://localhost:3000/products";
+  //   if (this.props.match.params.id) {
+  //       fetch(url)
+  //       .then((response) => response.json())
+  //       .then((data) => this.setState({ products: data }));
+  //   }
+  // }
+  // };
+
+  getProducts = async() => {
     if (this.props.match.params.id) {
-        fetch(url)
-        .then((response) => response.json())
-        .then((data) => this.setState({ products: data }));
-    }
-   
+    const api = await fetch(`http://localhost:3000/products`);
+    const res = await api.json();
+    const data = res.filter((item) => {
+    return item.id === this.props.match.params.id;
+     })
+     this.setState({ products: data });
+     console.log(data)
+  }
   };
+
+
+
 
   addToCart = (product) => {
     let newCart = this.state.cart;
