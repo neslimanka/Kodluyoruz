@@ -9,9 +9,9 @@ export const increaseCounter=()=>({
 })
 export const decreaseCounter=()=>({
     type:actionTypes.DECREASE_COUNTER, //fonksiyonun action tipi
-    payload:2
+    payload:1
 })
 export const increaseByTwoCounter=()=>({
     type:actionTypes.INCREASE_BY_TWO_COUNTER, //fonksiyonun action tipi
-    payload:3
+    payload:2
 })

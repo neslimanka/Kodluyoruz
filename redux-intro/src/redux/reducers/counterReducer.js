@@ -15,6 +15,7 @@ const counterReducer = (state = 0, action) => {
 
       case actionTypes.INCREASE_BY_TWO_COUNTER:
         return (newState = state + action.payload);
+        
 
     default:
       return state;
@@ -24,3 +25,4 @@ const counterReducer = (state = 0, action) => {
 export default counterReducer;
 
 //JavaScript Immutability
+//Reducer ın amacı state bilgisini döndürmektir.
