@@ -8,10 +8,10 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <Row>
-                    <Col xs="3">
+                    <Col xs="2">
                      <CategoryList/>
                     </Col>
-                    <Col xs="9">
+                    <Col xs="10">
                      <ProductList/>
                     </Col>
                 </Row>
