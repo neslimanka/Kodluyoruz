@@ -26,7 +26,7 @@ class ProductList extends Component {
       </thead>
       <tbody>
         {this.props.products.map(product=>(
-            <tr>
+            <tr key={product.id}>
             <th scope="row">{product.id}</th>
             <td>{product.title}</td>
             <td>{product.price}</td>
