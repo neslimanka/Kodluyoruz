@@ -3,20 +3,28 @@ import { connect } from 'react-redux'
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import { bindActionCreators} from "redux"
 import * as categoryActions from "../../redux/actions/categoryActions";
+import * as productsActions from "../../redux/actions/productsActions";
+
+
 
  class CategoryList extends Component {
     componentDidMount(){
         this.props.actions.getCategories()
     }
+    selectCategory=(category)=>{
+        this.props.actions.changeCategory(category);
+        this.props.actions.getProducts(category.id)
+    }
 
     render() {
         return (
             <div>
-                <h3>Category List</h3>
+                 <h3> Categories</h3>
+                
                 <ListGroup>
                     {
                         this.props.categories.map(category=>(
-                            <ListGroupItem key={category.id}>
+                            <ListGroupItem active={category.id===this.props.currentCategory.id} onClick={()=>this.selectCategory(category)} key={category.id}>
                               {category.categoryName}
                             </ListGroupItem> 
                         ))
@@ -39,7 +47,9 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     return{
         actions:{
-            getCategories:bindActionCreators(categoryActions.getCategories,dispatch)
+            getCategories:bindActionCreators(categoryActions.getCategories,dispatch),
+            changeCategory:bindActionCreators(categoryActions.changeCategory,dispatch),
+            getProducts:bindActionCreators(productsActions.getProducts,dispatch)
         }
     }
 }
