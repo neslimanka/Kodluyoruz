@@ -23,7 +23,9 @@ export default function cartReducer(state=initialState.cart,action){
                 return [...state,{...action.payload}] //--> state in bir kopyasını al ve o kopyaya action ile gelen 
                 //payload ı ekle
             }
-    
+        case actionTypes.REMOVE_FROM_CART:
+            const newState2=state.filter(cartItem=>cartItem.product.id!==action.payload.id)
+            return newState2;
         default:
             return state;
     }
