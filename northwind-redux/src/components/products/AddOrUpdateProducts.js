@@ -15,6 +15,7 @@ function AddOrUpdateProduct({
   
 }) {
   const [product, setProduct] = useState({ ...props.product }); //product statetini ,setProduct fonksyiyonu ile set edebilirim.
+  const[errors,setErrors]=useState({});
   useEffect(() => {
     if (categories.length === 0) {
       getCategories();
@@ -44,7 +45,13 @@ function AddOrUpdateProduct({
   }
 
   return (
-      <ProductDetail product={product} categories={categories} onChange={handleChange} onSave={handleSave} />
+      <ProductDetail 
+      product={product} 
+      categories={categories} 
+      onChange={handleChange} 
+      onSave={handleSave}
+      errors={errors}
+       />
   )
 }
 
@@ -54,7 +61,7 @@ const mapDispatchToProps={ //redux a bağlanmak için,reducerlara bağ operasyon
 
 export function getProductById(products,productId){ //bulunmak istenen ürün ve id si
 
-  let product=products.find(product=>product.id===productId) || null; 
+  let product=products.find(product=>product.id==productId) || null; 
   return product;
 
 }
