@@ -11,8 +11,15 @@ import {
 } from "reactstrap";
 import { bindActionCreators } from "redux";
 import * as cartActions from "../../redux/actions/cartActions";
+import {Link} from "react-router-dom"
+import alertify from "alertifyjs"
 
 class CartSummary extends Component {
+  removeFromCart(product){
+    this.props.actions.removeFromCart(product);
+    alertify.error(product.title + "sepetten silindi!")
+    
+}
   renderEmpty() {
     //-->sepet boş iken durum
     return (
@@ -30,13 +37,17 @@ class CartSummary extends Component {
         <DropdownMenu right>
           {this.props.cart.map((cartItem) => (
             <DropdownItem key={cartItem.product.id}>
-                <Badge color="danger" onClick={()=>this.props.actions.removeFromCart(cartItem.product)}>X</Badge>
+                <Badge color="danger" onClick={()=>this.removeFromCart(cartItem.product)}>X</Badge>
               {cartItem.product.title}
               <Badge color="warning">{cartItem.quantity}</Badge>
             </DropdownItem>
           ))}
           <DropdownItem divider />
-          <DropdownItem>Go to Cart</DropdownItem>
+          <DropdownItem>
+            <Link to="/cart">
+             Go to Cart
+            </Link>
+           </DropdownItem>
         </DropdownMenu>
       </UncontrolledDropdown>
     );
