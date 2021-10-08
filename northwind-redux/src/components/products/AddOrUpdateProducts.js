@@ -64,13 +64,13 @@ export function getProductById(products,productId){ //bulunmak istenen ürün ve
 //ownProps:componentlerın kendı içinde barındırdıkları proplara denk geliyor.
 function mapStateToProps(state,ownProps) {
     const productId=ownProps.match.params.productId  //git parametrelere bak ordan productId yi çek
-    const product=productId && state.productReducer.length>0 //statedeki ürünlrin içriisnden aradığım urunu bulmaya çalışacagım
-    ?getProductById(state.productReducer,productId)//eğer aradıgım urun varsa? 
+    const product=productId && state.productListReducer.length>0 //statedeki ürünlrin içriisnden aradığım urunu bulmaya çalışacagım
+    ?getProductById(state.productListReducer,productId)//eğer aradıgım urun varsa? 
     :{}
     return {
         product,
-        products:state.productReducer,
-        categories:state.categoryReducer
+        products:state.productListReducer,
+        categories:state.categoryListReducer
     }
 
 }
