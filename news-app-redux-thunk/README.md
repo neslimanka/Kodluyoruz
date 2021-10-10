@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+Mobile News App (Redux/ Redux Thunk)
+alt
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Üstteki gibi 3 ekrandan (kategoriler-Kategori haberleri-haber sayfası) oluşan mobil bir uygulama tasarımı olacaktır.
+Uygulama verilerinin çekiminde redux-thunk ve axios'tan faydalanılacaktır.
+News API için key'i buradan alabilirsiniz: https://newsapi.org
+Herhangi bir CSS kütüphanesi kullanabilirsiniz.
+Kategori sayfası
+Aşağıdaki görselleri kullanarak listeyi oluşturabilirsiniz:
+const imageBaseUrl = "https://images.unsplash.com/photo-";
+const imageParameters = "?auto=format&fit=crop&w=375&q=80";
+const dataSource = [
+  { category: "Teknoloji", imageId: "1478358161113-b0e11994a36b" },
+  { category: "Spor", imageId: "1521412644187-c49fa049e84d" },
+  { category: "Sağlık", imageId: "1526256262350-7da7584cf5eb" },
+  { category: "Ekonomi", imageId: "1542222024-c39e2281f121" },
+  { category: "Eğitim", imageId: "1503676260728-1c00da094a0b" },
+  { category: "Müzik", imageId: "1511671782779-c97d3d27a1d4" },
+  { category: "Tiyatro", imageId: "1507924538820-ede94a04019d" },
+  { category: "Sinema", imageId: "1478720568477-152d9b164e26" },
+  { category: "Hava", imageId: "1530908295418-a12e326966ba" },
+  { category: "Seyahat", imageId: "1473625247510-8ceb1760943f" },
+  { category: "Astroloji", imageId: "1532968961962-8a0cb3a2d4f5" },
+  { category: "Otomobil", imageId: "1537041373298-55dbb337e651" },
+  { category: "Galeri", imageId: "1500051638674-ff996a0ec29e" },
+  { category: "Video", imageId: "1524253482453-3fed8d2fe12b" },
+];
+Kategoriye tıklandığında ilgili kategorideki haberler getirilecektir.
+Haber listesi sayfası
+İlgili kategori ismi react-router ile bir önceki ekrandan çekilerek haber listesi getirilecektir.
+Haber listesini getirmek için NewsApi ile birlikte aşağıdaki gibi bir URL kullanabilirsiniz
+const query = "Teknoloji"; // Router'dan çekilecek.
+const language = "tr";
+const API_KEY = "<API_KEY>"; // News API sitesinden key alınacak
+const url = `https://newsapi.org/v2/everything?language=${language}&q=${query}&apiKey=${API_KEY}`;
+Haber sayfası
+React Router ile News API'den dönen response'a göre getirilen haber URL'i burada bir iframe içerisinde render edikecektir
