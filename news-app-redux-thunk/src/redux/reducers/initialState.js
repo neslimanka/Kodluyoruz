@@ -1,5 +1,7 @@
 export default {
     currentCategory:{},
-    categories:[]
+    categories:[],
+    news:[],
+    newsPage:[]
   
  }
