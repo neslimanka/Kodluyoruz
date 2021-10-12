@@ -14,7 +14,7 @@ class NewsDetail extends Component {
           <thead>
             <tr>
               <th>#</th>
-              <th>Product Name</th>
+              <th>News Name</th>
               <th>Date</th>
               <th>Author</th>
               <th></th>
@@ -40,7 +40,7 @@ class NewsDetail extends Component {
 //statetleri prop a aktarmam lazım
 function mapStateToProps(state) {
   return {
-    newsPage: state.newsPageReducer,
+    newsPage: state.newsListReducer,
   };
 }
 //action a bağlanmam laızm
