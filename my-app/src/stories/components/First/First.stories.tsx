@@ -7,7 +7,7 @@ export const First = () => {
 
 export default {
     component: First,
-    title: 'Components/First',
+    title: 'Hello/World/Components/First-2',
 } as Meta;
 
 export const SomeNameYouLike: React.FC = () => <First/>;

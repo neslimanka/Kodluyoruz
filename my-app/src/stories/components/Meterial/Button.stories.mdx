@@ -1,0 +1,35 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button } from "@material-ui/core";
+
+<Meta
+    title='Material/Button-mdx'
+    component={Button}
+    argTypes={{
+        buttonText: {type: 'string'},
+        disabled: {type: 'boolean'},
+        disableElevation: {type: 'boolean'},
+        disableFocusRipple: {type: 'boolean'},
+        fullWidth: {type: 'boolean'},
+        href: {type: 'string'},
+        variant: {
+            options: ['contained', 'outlined', 'text'],
+            control: {
+                type: 'inline-radio'
+            }
+        },
+        color: {
+            options: ['default', 'inherit', 'primary', 'secondary'],
+            control: {
+                type: 'select'
+            }
+        }
+    }}
+/>
+
+export const Template = (args) => <Button {...args} >{args.buttonText}</Button>
+
+# This story is about something
+
+<Story name="Primary" args={{variant: 'contained', buttonText: 'Hello world'}}>
+    {Template.bind({})}
+</Story>
