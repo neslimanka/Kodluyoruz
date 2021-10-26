@@ -1,0 +1,90 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 68px;
+    z-index: 110;
+    transition: all 0.5s;
+    transition-timing-function: ease-in;
+    background-image: linear-gradient(rgb(224, 222, 222), transparent);
+  }
+  
+  .link,
+  .login-container {
+    color: rgb(8, 8, 8);
+    font-weight: lighter;
+    font-size: 14px;
+    margin-left: 18px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    color: rgb(24, 23, 23);
+    font-weight: 'bold';
+    
+  }
+  
+  .login-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .icons {
+    margin-right: 20px;
+    margin-top: 1px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  
+  .search-icon {
+    position: relative;
+    font-size: 20px;
+    left: 58px;
+  }
+  
+  
+  .links {
+    margin-left: 25px;
+    margin-top: 5.5px;
+  }
+  
+  .navbarColor {
+    background-color: rgb(20, 20, 20);
+  }
+  
+  .flex-container-logo {
+    display: flex;
+  }
+  
+  .flex-container-menu {
+    display: flex;
+  }
+  .flex-container-menu1{
+    
+    display: flex;
+  
+  }
+  .logo {
+    margin-top: 5px;
+    width: 170px;
+    object-fit: contain;
+  }
+  
+  .cinemaximum-logo {
+    margin-left: 0;
+  }
+  
+  
+  
+  .flex-container {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 43px 0 51px;
+  }
+  
+
+  
