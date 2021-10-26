@@ -1,0 +1,21 @@
+{
+  "name": "expressjs-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "engines":{
+    "node": "14.17.6"
+  },
+  "scripts": {
+    
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+
+}
